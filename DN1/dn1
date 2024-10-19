@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# Check if at least 3 arguments are provided
+if [ "$#" -lt 3 ]; then
+  echo "Usage: dn1 <input1> <input2> <input3> [input4]"
+  exit 1
+fi
+
+npm start -- "$@"
