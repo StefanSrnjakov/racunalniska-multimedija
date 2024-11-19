@@ -1,0 +1,120 @@
+Metrike za napake
+Grayeva koda
+2D geo. transformacije
+Hadamar transformacije
+PSNR, energija
+Jpeg - kvantizacija, vmesno zaporedje
+sestava kvantizacijske matrike za podan Q
+
+nekaj a,b,c nalog
+napišite korake jpeg
+brez DCT
+
+
+
+
+
+1. gray coda 1,3,5,7 kako lahko preverimo
+2. Kaj se zgodi z CCR po transformacijii abc
+3. Hierarhicni nacin JPEG slika
+4. neki abcd vem da je blo neka ohranjanje energije
+5. Hadamardova vektor kvantitizacija z 1.5 absolutno zaokrozi navzdol plus razlika v energijah
+6.Razlika med kompresijo dekmopresijo jpeg abcd
+7. 8x8 kvantitizcija z q
+8. Za katere ni JPeg lossles primeren, abcd sivinske slike...
+9. Golumbovo kodiranje 3 stevila
+
+Izračun časovne zahtevnosti haar-a
+Inverzni postopek haar-a (praktični primer) 
+Praktična naloga za f8, f4, 3ot in vcc
+Kaj pomeni akos(to so meli neko dodatno predavanje ki ga mi mnda nismo)
+Ime ali kratica enačbe za računanje napake
+Izračun golombove kode (praktični primer) 
+Postopek stiskanja in razširitve pobarvank
+Katere vrednosti so lahko po kvantizaciji delta 
+Koliko je vseh kontekstov Ls in kako jih reduciramo?
+katera verižna koda je za diagonale?
+
+Imejmo sivinsko sliko s štirimi bitnimi ravninami. Skonstruirajte Grayevo kodo in z njo zapišite piksle z vrednosmi 1, 3, 5 in 7. Kako lahko preverite, da je rezultat pravilen?
+
+Križna korelacija vrednosti pikslov pred in po transformaciji (izberite eno ali več možnosti):
+    a) se ne spremeni,
+    b) se praviloma poveča,
+    (c)) se praviloma zmanjša.
+
+Cilj transformacij, ki jih uporavljamo pri stiskanju slik, je (izberite eno ali več možnosti):
+    (a)) ohraniti energijo slike, -> It is not the goal but transformations should keep the energy
+    b) zmanjšati energijo slike,
+    (c)) skoncentrirati energijo v nekaj koeficientih,
+    d) porazdeliti enrgijo čim bolj enakomerno po koeficientih.
+
+S sliko razložite hierarhični način JPEG.
+
+Imejmo koreliran vektor vrednosti: 2, 4, 3, 5. Zaporedje najprej transformiramo z Walsh hardamardovo matriko.
+V dobljenem zaporedju kvantizirajmo vse vrednosti, ki so po aboslutni vrednosti manjše od 1,5.
+Dobljene vrednosti transformirajmo v prosto pikslov in dobljene vrednosti zakrožimo.
+Ugotovite, za koliko procentov sse razlikuje enrgija kvantiziranega vektorja vrednosti.
+
+JPEG izvaja koncept "cik-cak" razvrstitve koeficientov. Kakšen je razlog? Izberite eno ali več možnosti:
+
+    a) s koncewptom dosežemo anti-alias, s čimer izboljšamo vizualno kakovost slike,
+    b) s konceptom pripravimo koeficiente za stiskanje RLE,
+    c) s konceptom zmanjšamo informacijsko entropijo,
+    d) JPEG ne uporablja koncepta cik-cak. uporablja ga samo naprednejši JPEG2000
+
+Matrika koeficientov F po DCT je:
+F =
+| 645 -45  18  20  -1 -13   8   7|
+|  53  36 -24  17   0   9  13   7|
+| -29 -33 -25 -19   4   4   6  19|
+|  16  38 -42  -2  29   6   7  -6|
+| -18  13   9  19 -15   0  -4   3|
+|  12   8  -2   1   6 -28   3   3|
+|  27  11 -11   0 -37   2  -1   1|
+
+Uporabnik je izbral kvantizacijski koeficinet quality = 3. Določite matriko Fq po kvantizaciji.
+
+JPEG v načinu stiskanja z izgubami je manj primeren za (izberite eno ali več možnosti):
+    a) stiskanje črnobelih slik,
+    b)stiskanje sivinskih slik,
+    c) stiskanje barvni9h slik z zveznimi barvnimi toni,
+    d) stiskanje risanih slik,
+    e) stiskanje inženirskih slik in teksta.
+
+Dekodiranje JPEG je občutno hitrejše od kodiranja zaradi (izberite eno ali več možnosti):
+    a) inverzna kosinusna transformacija dobi na vhodu več ničel,
+    b) v fazi dekodiranja kvantziacija ni potrevna.
+    c) konstrukcija matrike pikslov je hitrejša, ker ne vključuje konstrukcije zaporedja "cik-cak",
+    d) dekodiranje ni bistveno hitrejše.
+
+Določite Golombove kode števil, če je vrednost Golombovega parametra k enaka 9. Vejico unarne kode predstavlja bit 0.
+    Golombova koda števila 30 je:
+    Golombova koda števila 19 je:
+    Golombova koda števila 72 je:
+
+
+Zaporedje dct koeficientov, vmesne vrednosti pred huffmanom
+Casovna zahtevnost Haarove (izracun)
+Napoved pri JPEG-LS (podani a,b,c)
+Dekompresija JPEG hitrejsa od kompresije?
+Kako vpliva krizna korelacija na energijo
+Grayeva koda
+Welsh hadamard * vektor + kvantizacija, razlika v energijah %
+Kvantizacija zadnjega koeficienta Q(i,j)
+SPIHT
+
+1. koreliran vector [9, 7, 10, 8] z Walsh hadmanom in pragom 1.5 kakšna je razlika v energiji?
+2. JPEG LS z a=150 b=100 c=120
+3. Inverzna Haarova transformacia za 8 vrednosti [5.75, 0.25, -3.5, 1, -0.5, -0.5, -0.5, -0.5]
+4. SIPTH i=j=3 zanima L(i,j) in D(i,j) in i, j ¢ [0,7] zaporedje indeksov je pomembno
+5. Grayeve kode dolžine 4 za bitni niz 1111110011100001
+6. vprasanje za kompresijo slike po principu a, b, c, d
+
+Izpit 14.08.2024:
+Walsh-Hadamardova transformacija + kvantizacija z 1.5 + izračun energije in % (10 t)
+JPEG-LS s podanimi a = 100, b = 150 in c = 120, računali smo x (5 t)
+Inverz Haarove transformacije (10 t)
+SPIHT - nismo računali postopka ampak smo nekaj delali z D(i, j) in L(i,j) (10 t)
+Zrcalna Grayeva koda - imeli smo binarni niz, morali smo izračunat vrednost tega binarnega niza, 4-bitna koda (10 t)
+Teorija iz transofrmacij, stiskanja, ohranjanje energije (or something like that) (5 t)
+
